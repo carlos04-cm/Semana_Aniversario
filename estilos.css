@@ -1,0 +1,1356 @@
+/* CONFIGURACIÓN GENERAL */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f6f8fa;
+    color: #425570;
+    line-height: 1.7;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+button {
+    font-family: inherit;
+}
+
+/* ENCABEZADO */
+.encabezado {
+    padding: 65px max(5%, calc((100% - 1200px) / 2)) 85px;
+    background:
+        radial-gradient(
+            circle at top right,
+            rgba(117, 61, 108, 0.4),
+            transparent 40%
+        ),
+        linear-gradient(115deg, #001b3b, #073c80);
+    color: white;
+    text-align: left;
+}
+
+.encabezado h1 {
+    margin-bottom: 18px;
+    font-size: clamp(32px, 4vw, 54px);
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.encabezado h1 span {
+    color: inherit;
+}
+
+.encabezado > p {
+    color: #e5edf8;
+    font-size: 20px;
+    margin-bottom: 26px;
+}
+
+/* LOGO A LA IZQUIERDA Y SEDE A LA DERECHA */
+.encabezado .identidad-universidad {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 100%;
+    margin-bottom: 28px;
+}
+
+.encabezado .marco-logo {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 320px;
+    max-width: 100%;
+    height: auto;
+    flex-shrink: 1;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+}
+
+.encabezado .marco-logo .logo-universidad {
+    position: static;
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin: 0;
+    object-fit: contain;
+    filter: none;
+}
+
+/* Letras blancas, conservando los colores del símbolo.
+   Requiere el logo horizontal con fondo transparente. */
+.encabezado .marco-logo::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        url("imagenes/logo_uniremington.png")
+        center / 100% 100% no-repeat;
+    filter: brightness(0) invert(1);
+    clip-path: inset(0 0 0 25%);
+    pointer-events: none;
+}
+
+.encabezado .identidad-universidad .etiqueta {
+    position: static;
+    align-self: center;
+    margin: 0 0 0 auto;
+    padding: 9px 20px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.12);
+    color: white;
+    font-size: 15px;
+    font-weight: 700;
+    text-align: center;
+    transform: none;
+}
+
+.boton {
+    display: inline-block;
+    padding: 12px 22px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.12);
+    color: white;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.boton:hover {
+    background: rgba(255, 255, 255, 0.22);
+    transform: translateY(-2px);
+}
+
+/* CONTENIDO PRINCIPAL */
+main {
+    width: min(1200px, 92%);
+    margin: 0 auto;
+}
+
+/* PRESENTACIÓN */
+.presentacion {
+    position: relative;
+    margin-top: -32px;
+    margin-bottom: 48px;
+    padding: 35px 40px;
+    border: 1px solid #dfe6ee;
+    border-radius: 20px;
+    background: white;
+    box-shadow: 0 8px 22px rgba(0, 27, 59, 0.1);
+}
+
+.presentacion h2 {
+    position: relative;
+    margin-bottom: 22px;
+    padding-left: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #dfe6ee;
+    color: #00336f;
+    font-size: 29px;
+    font-weight: 800;
+    line-height: 1.3;
+}
+
+.presentacion h2::before {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 0;
+    width: 6px;
+    height: 32px;
+    border-radius: 4px;
+    background: #e51f2a;
+}
+
+.presentacion p {
+    font-size: 17px;
+    line-height: 1.9;
+}
+
+/* PROGRAMACIÓN */
+.programacion {
+    margin-bottom: 60px;
+    scroll-margin-top: 25px;
+}
+
+.programacion > h2 {
+    margin-bottom: 18px;
+    color: #00336f;
+    font-size: 30px;
+    font-weight: 800;
+}
+
+.introduccion {
+    margin-bottom: 28px;
+    padding: 16px 20px;
+    border-left: 4px solid #00336f;
+    border-radius: 0 10px 10px 0;
+    background: #edf4ff;
+    color: #234a75;
+    font-size: 15px;
+}
+
+/* CUADRÍCULA DE EVENTOS */
+.eventos {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px;
+}
+
+/* TARJETAS */
+.tarjeta {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    border: 1px solid #dfe6ee;
+    border-radius: 16px;
+    background: white;
+    box-shadow: 0 3px 8px rgba(0, 27, 59, 0.12);
+    transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.tarjeta:hover,
+.tarjeta:focus-within {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 24px rgba(0, 27, 59, 0.17);
+}
+
+/* PARTICIPACIÓN */
+.participacion {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 30;
+    padding: 6px 12px;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: 800;
+    line-height: 1.4;
+    text-transform: uppercase;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+    pointer-events: none;
+}
+
+.participacion.obligatoria {
+    border: 1px solid #ffb8b8;
+    background: #ffe3e3;
+    color: #a91515;
+}
+
+.participacion.opcional {
+    border: 1px solid #8ee5ad;
+    background: #dcffe8;
+    color: #086534;
+}
+
+/* FOTOGRAFÍAS DE INICIO Y FINAL */
+.fotos-evento {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+    gap: 4px;
+    flex-shrink: 0;
+    border-radius: 16px 16px 0 0;
+    background: #e8edf4;
+}
+
+.enlace-imagen {
+    position: relative;
+    display: block;
+    min-width: 0;
+    background: #e8edf4;
+    text-decoration: none;
+}
+
+.fotos-evento .enlace-imagen:first-child {
+    border-top-left-radius: 16px;
+}
+
+.fotos-evento .enlace-imagen:last-child {
+    border-top-right-radius: 16px;
+}
+
+.fotos-evento img {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.fotos-evento .enlace-imagen:first-child img {
+    border-top-left-radius: 16px;
+}
+
+.fotos-evento .enlace-imagen:last-child img {
+    border-top-right-radius: 16px;
+}
+
+.etiqueta-foto {
+    position: relative;
+    display: block;
+    padding: 6px 10px;
+    background: #07336c;
+    color: white;
+    font-size: 13px;
+    font-weight: 700;
+    text-align: center;
+}
+
+/* AMPLIACIÓN DE LA FOTO AL PASAR EL CURSOR */
+@media (hover: hover) and (pointer: fine) {
+    .tarjeta:hover,
+    .tarjeta:focus-within {
+        z-index: 10;
+    }
+
+    .fotos-evento .enlace-imagen:first-child img {
+        transform-origin: left center;
+    }
+
+    .fotos-evento .enlace-imagen:last-child img {
+        transform-origin: right center;
+    }
+
+    .fotos-evento .enlace-imagen:hover,
+    .fotos-evento .enlace-imagen:focus-visible {
+        z-index: 40;
+    }
+
+    .fotos-evento .enlace-imagen:hover img,
+    .fotos-evento .enlace-imagen:focus-visible img {
+        z-index: 41;
+        transform: scale(1.6);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+    }
+}
+
+/* INFORMACIÓN DE LAS TARJETAS */
+.contenido-tarjeta {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: 24px;
+}
+
+.contenido-tarjeta time {
+    position: static;
+    order: 0;
+    align-self: flex-start;
+    max-width: 100%;
+    margin-bottom: 14px;
+    padding: 6px 11px;
+    border: 1px solid #d9e5f4;
+    border-radius: 8px;
+    background: #eaf1fa;
+    color: #00336f;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.contenido-tarjeta h3 {
+    order: 1;
+    margin-bottom: 16px;
+    color: #00336f;
+    font-size: 22px;
+    font-weight: 800;
+    line-height: 1.3;
+}
+
+.contenido-tarjeta p {
+    font-size: 15px;
+}
+
+.contenido-tarjeta strong {
+    color: #00336f;
+}
+
+.contenido-tarjeta p:nth-of-type(2) {
+    order: 2;
+    margin-bottom: 6px;
+}
+
+.contenido-tarjeta p:nth-of-type(3) {
+    order: 3;
+    margin-bottom: 17px;
+}
+
+.contenido-tarjeta .descripcion-evento {
+    order: 4;
+    margin-bottom: 22px;
+    line-height: 1.8;
+}
+
+/* BOTONES DE LAS TARJETAS */
+.acciones-tarjeta {
+    display: flex;
+    flex-wrap: wrap;
+    order: 5;
+    gap: 10px;
+    margin-top: auto;
+}
+
+.btn-excel,
+.btn-vista {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 11px 14px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.4;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-excel {
+    flex: 1;
+    border: 1px solid #108044;
+    background: #108044;
+    color: white;
+}
+
+.btn-excel:hover {
+    border-color: #096334;
+    background: #096334;
+}
+
+.btn-vista {
+    border: 1px solid #dce5ef;
+    background: #f1f5f9;
+    color: #00336f;
+}
+
+.btn-vista:hover {
+    background: #e2eaf4;
+}
+
+/* VENTANA DE VISTA RÁPIDA */
+.ventana-vista {
+    width: min(640px, 94%);
+    max-height: 90vh;
+    margin: auto;
+    padding: 0;
+    overflow-y: auto;
+    border: 0;
+    border-radius: 12px;
+    background: white;
+    color: #263348;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.ventana-vista::backdrop {
+    background: rgba(0, 20, 45, 0.65);
+}
+
+.cabecera-vista {
+    padding: 20px 24px;
+    background: #07336c;
+}
+
+.cabecera-vista h2 {
+    color: white;
+    font-size: 21px;
+    font-weight: 800;
+    line-height: 1.4;
+}
+
+.cuerpo-vista {
+    padding: 22px;
+}
+
+/* TABLA DEL RESUMEN */
+.tabla-vista {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.tabla-vista th,
+.tabla-vista td {
+    padding: 12px 14px;
+    border-bottom: 1px solid #dce5ef;
+    text-align: left;
+    vertical-align: top;
+    overflow-wrap: anywhere;
+}
+
+.tabla-vista th {
+    width: 35%;
+    background: #f5f7fa;
+    color: #485b75;
+    font-weight: 700;
+}
+
+.tabla-vista td {
+    background: white;
+}
+
+.nota-vista {
+    margin-top: 18px;
+    color: #627792;
+    font-size: 13px;
+    font-style: italic;
+}
+
+/* BOTONES DE LA VENTANA */
+.pie-vista {
+    display: flex;
+    align-items: stretch;
+    gap: 12px;
+    padding: 16px 22px;
+    border-top: 1px solid #dce5ef;
+    background: #f8fafc;
+}
+
+.pie-vista form {
+    display: flex;
+}
+
+.cerrar-vista {
+    min-height: 44px;
+    padding: 10px 18px;
+    border: 0;
+    border-radius: 8px;
+    background: #e2e8f0;
+    color: #263348;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.cerrar-vista:hover {
+    background: #cfd8e5;
+}
+
+.pie-vista .btn-excel {
+    flex: 1;
+}
+
+/* NAVEGACIÓN CON TECLADO */
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid #e51f2a;
+    outline-offset: 3px;
+}
+
+.encabezado a:focus-visible {
+    outline-color: #ffcf40;
+}
+
+.enlace-imagen:focus-visible {
+    outline-offset: -4px;
+}
+
+/* PIE DE PÁGINA */
+.pie-pagina {
+    padding: 28px 20px;
+    background: #001b3b;
+    color: white;
+    text-align: center;
+}
+
+.pie-pagina p:first-child {
+    font-weight: 700;
+}
+
+.pie-pagina p + p {
+    margin-top: 5px;
+    color: #c1d1e5;
+    font-size: 14px;
+}
+
+/* TABLETAS */
+@media (max-width: 950px) {
+    .eventos {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* CELULARES */
+@media (max-width: 600px) {
+    .encabezado {
+        padding: 40px 6% 65px;
+    }
+
+    .encabezado .identidad-universidad {
+        gap: 16px;
+        margin-bottom: 24px;
+    }
+
+    .encabezado .marco-logo {
+        width: 250px;
+    }
+
+    .encabezado .identidad-universidad .etiqueta {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+
+    .encabezado h1 {
+        font-size: 32px;
+    }
+
+    .encabezado > p {
+        font-size: 17px;
+    }
+
+    .presentacion {
+        margin-bottom: 32px;
+        padding: 25px;
+    }
+
+    .presentacion h2 {
+        font-size: 25px;
+    }
+
+    .presentacion p {
+        font-size: 16px;
+    }
+
+    .programacion > h2 {
+        font-size: 26px;
+    }
+
+    .eventos {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .contenido-tarjeta {
+        padding: 22px;
+    }
+}
+
+@media (max-width: 480px) {
+    .cabecera-vista,
+    .cuerpo-vista {
+        padding: 16px;
+    }
+
+    .cabecera-vista h2 {
+        font-size: 19px;
+    }
+
+    .tabla-vista th {
+        width: 38%;
+    }
+
+    .tabla-vista th,
+    .tabla-vista td {
+        padding: 10px 8px;
+        font-size: 13px;
+    }
+
+    .pie-vista {
+        flex-wrap: wrap;
+        padding: 14px 16px;
+    }
+}
+
+/* REDUCIR ANIMACIONES SEGÚN LA CONFIGURACIÓN DEL USUARIO */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .tarjeta,
+    .boton,
+    .fotos-evento img,
+    .btn-excel,
+    .btn-vista,
+    .cerrar-vista {
+        transition: none;
+    }
+
+    .tarjeta:hover,
+    .tarjeta:focus-within,
+    .boton:hover,
+    .fotos-evento .enlace-imagen:hover img,
+    .fotos-evento .enlace-imagen:focus-visible img {
+        transform: none;
+    }
+}
+.tarjeta > .fotos-evento {
+    order: 0;
+}
+
+.tarjeta > .participacion {
+    position: static;
+    order: 1;
+    align-self: flex-end;
+    margin: 12px 16px 0;
+    z-index: auto;
+}
+
+.tarjeta > .contenido-tarjeta {
+    order: 2;
+}
+.tarjeta > .participacion {
+    position: static;
+    order: 1;
+    align-self: center;
+    margin: 12px auto 0;
+    z-index: auto;
+}
+.tarjeta > .participacion {
+    position: static;
+    order: 1;
+    align-self: flex-start;
+    margin: 12px auto 0 16px;
+    z-index: auto;
+}
+
+/* ==========================================================================
+   ESTILOS DEL VISOR DE HOJA DE CÁLCULO EXCEL INTEGRADO
+   ========================================================================== */
+
+/* Diálogo Principal */
+.visor-excel-dialog {
+    margin: auto;
+    border: none;
+    border-radius: 14px;
+    padding: 0;
+    width: min(1280px, 96vw);
+    height: min(880px, 92vh);
+    background: #ffffff;
+    box-shadow: 0 25px 70px rgba(0, 15, 40, 0.45);
+    overflow: hidden;
+    color: #242424;
+}
+
+.visor-excel-dialog::backdrop {
+    background: rgba(4, 18, 38, 0.72);
+    backdrop-filter: blur(8px);
+}
+
+.visor-excel-contenedor {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    background: #ffffff;
+}
+
+/* Cabecera Verde Excel */
+.visor-excel-cabecera {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    background: linear-gradient(135deg, #107c41, #0b5a2e);
+    color: #ffffff;
+    padding: 12px 22px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    user-select: none;
+}
+
+.visor-excel-marca {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.visor-icono-excel {
+    font-size: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.15);
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+}
+
+.visor-titulo-libro {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.2;
+    margin: 0;
+}
+
+.visor-subtitulo-libro {
+    font-size: 0.82rem;
+    color: #e0f2e9;
+    display: block;
+    margin-top: 2px;
+}
+
+.visor-acciones-cabecera {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.visor-btn-descargar {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.18);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 6px;
+    padding: 7px 14px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.visor-btn-descargar:hover {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: #ffffff;
+}
+
+.visor-btn-cerrar {
+    background: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, transform 0.15s;
+}
+
+.visor-btn-cerrar:hover {
+    background: #d83b01;
+    transform: scale(1.05);
+}
+
+/* Barra de Fórmulas fx */
+.visor-barra-formula {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #f8fafc;
+    border-bottom: 1px solid #e2e8f0;
+    padding: 8px 18px;
+    font-size: 0.88rem;
+    user-select: none;
+}
+
+.visor-cuadro-nombres {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    padding: 3px 12px;
+    font-family: Consolas, monospace;
+    font-weight: 700;
+    color: #0f172a;
+    min-width: 60px;
+    text-align: center;
+}
+
+.visor-icono-fx {
+    color: #107c41;
+    font-weight: 800;
+    font-style: italic;
+    font-family: "Georgia", serif;
+    font-size: 1rem;
+    padding: 0 4px;
+}
+
+.visor-valor-formula {
+    flex: 1;
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    padding: 4px 12px;
+    font-family: inherit;
+    color: #334155;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Contenedor con Scroll de la Cuadrícula */
+.visor-cuadricula-scroll {
+    flex: 1;
+    overflow: auto;
+    background: #ffffff;
+    padding: 16px;
+    position: relative;
+}
+
+.visor-tabla-excel-wrapper {
+    min-width: 900px;
+    background: #ffffff;
+}
+
+/* Tabla Estilo Excel */
+.visor-tabla-excel {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+    line-height: 1.5;
+    color: #1e293b;
+    border: 1px solid #d2d0ce;
+}
+
+.visor-tabla-excel th,
+.visor-tabla-excel td {
+    border: 1px solid #e1dfdd;
+    padding: 8px 12px;
+    vertical-align: middle;
+}
+
+/* Encabezados de Columna (A, B, C...) */
+.fila-columnas th {
+    background: #f3f2f1;
+    color: #605e5c;
+    font-weight: 600;
+    font-size: 0.78rem;
+    text-align: center;
+    border: 1px solid #d2d0ce;
+    user-select: none;
+    height: 26px;
+    padding: 2px 8px;
+}
+
+.col-esquina {
+    width: 44px;
+    min-width: 44px;
+    max-width: 44px;
+    background: #edebe9 !important;
+}
+
+/* Columna de Números de Fila (1, 2, 3...) */
+.col-num {
+    width: 44px;
+    min-width: 44px;
+    max-width: 44px;
+    background: #f3f2f1;
+    color: #605e5c;
+    font-weight: 600;
+    font-size: 0.78rem;
+    text-align: center;
+    border: 1px solid #d2d0ce;
+    user-select: none;
+    padding: 4px;
+}
+
+/* Filas Especiales */
+.fila-vacia td {
+    height: 14px;
+    background: #ffffff;
+    border-color: #f1f0ef;
+}
+
+.fila-banner-titulo td {
+    background: #107c41;
+    color: #ffffff;
+    font-size: 1.25rem;
+    font-weight: 800;
+    text-align: center;
+    padding: 14px 20px;
+    letter-spacing: 0.5px;
+}
+
+.fila-banner-subtitulo td {
+    background: #0d6334;
+    color: #e5f6ed;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-align: center;
+    padding: 8px 20px;
+}
+
+.fila-encabezados-tabla th {
+    background: #217346;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-align: left;
+    border: 1px solid #107c41;
+    padding: 10px 12px;
+}
+
+.fila-seccion th {
+    background: #eef8f2;
+    color: #0b5a2e;
+    font-size: 0.95rem;
+    font-weight: 700;
+    padding: 10px 14px;
+    border-top: 2px solid #107c41;
+    border-bottom: 2px solid #107c41;
+}
+
+/* Celdas de Datos */
+.th-campo {
+    background: #f8fafc;
+    color: #334155;
+    font-weight: 700;
+    text-align: right;
+    width: 180px;
+    padding-right: 16px;
+}
+
+.celda-valor {
+    background: #ffffff;
+    color: #0f172a;
+    font-size: 0.92rem;
+}
+
+.celda-destacada {
+    font-weight: 700;
+    color: #107c41;
+}
+
+.celda-centro {
+    text-align: center;
+}
+
+.celda-texto {
+    max-width: 320px;
+    font-size: 0.85rem;
+    line-height: 1.45;
+}
+
+.celda-descripcion-bloque {
+    background: #fcfdfd;
+    padding: 16px 20px;
+    line-height: 1.65;
+    font-size: 0.95rem;
+    color: #1e293b;
+}
+
+/* Enlaces y Botones entre Hojas */
+.link-hoja-directa {
+    background: none;
+    border: none;
+    color: #073c80;
+    font-weight: 700;
+    font-size: inherit;
+    text-align: left;
+    cursor: pointer;
+    text-decoration: underline;
+    padding: 0;
+}
+
+.link-hoja-directa:hover {
+    color: #107c41;
+}
+
+.btn-ir-hoja {
+    background: #eaf5ed;
+    color: #107c41;
+    border: 1px solid #a3d9b5;
+    border-radius: 6px;
+    padding: 5px 12px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.15s, color 0.15s, transform 0.1s;
+}
+
+.btn-ir-hoja:hover {
+    background: #107c41;
+    color: #ffffff;
+    transform: translateY(-1px);
+}
+
+/* Badges de Participación */
+.visor-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 0.76rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+}
+
+.badge-opcional {
+    background: #dcfce7;
+    color: #166534;
+    border: 1px solid #86efac;
+}
+
+.badge-obligatoria {
+    background: #ffedd5;
+    color: #9a3412;
+    border: 1px solid #fdba74;
+}
+
+/* Contenedor de Fotografías en la Hoja */
+.celda-fotos-col {
+    background: #fafaf9;
+    padding: 16px;
+    text-align: center;
+    vertical-align: top;
+    width: 50%;
+}
+
+.visor-celda-foto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    max-width: 440px;
+    margin: 0 auto;
+}
+
+.visor-foto-marco {
+    width: 100%;
+    height: 260px;
+    background: #e2e8f0;
+    border: 2px dashed #cbd5e1;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.visor-foto-marco img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.visor-foto-marco img:hover {
+    transform: scale(1.03);
+}
+
+.foto-no-disponible {
+    color: #64748b;
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 20px;
+    text-align: center;
+}
+
+.visor-foto-pie {
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: #475569;
+}
+
+/* Barra Inferior de Pestañas (Hojas de Cálculo) */
+.visor-barra-pestanas {
+    display: flex;
+    align-items: center;
+    background: #edebe9;
+    border-top: 1px solid #d2d0ce;
+    height: 44px;
+    padding: 0 8px;
+    user-select: none;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.visor-controles-desplazamiento {
+    display: flex;
+    gap: 2px;
+    padding-right: 6px;
+    border-right: 1px solid #d2d0ce;
+}
+
+.btn-scroll-tab {
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: #605e5c;
+    width: 26px;
+    height: 26px;
+    font-size: 0.7rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-scroll-tab:hover {
+    background: #e1dfdd;
+    color: #201f1e;
+}
+
+.visor-lista-pestanas {
+    display: flex;
+    align-items: flex-end;
+    gap: 3px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding-left: 6px;
+    height: 100%;
+    flex: 1;
+}
+
+.visor-lista-pestanas::-webkit-scrollbar {
+    display: none;
+}
+
+.visor-tab {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #e1dfdd;
+    color: #494544;
+    border: 1px solid #d2d0ce;
+    border-bottom: none;
+    border-radius: 6px 6px 0 0;
+    padding: 7px 16px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.15s, color 0.15s;
+    height: 36px;
+    margin-top: auto;
+}
+
+.visor-tab:hover {
+    background: #edebe9;
+    color: #107c41;
+}
+
+.visor-tab.tab-activa {
+    background: #ffffff;
+    color: #107c41;
+    font-weight: 700;
+    border-top: 3px solid #107c41;
+    height: 40px;
+    box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.06);
+}
+
+.visor-estado-hoja {
+    font-size: 0.78rem;
+    color: #605e5c;
+    padding: 0 14px;
+    border-left: 1px solid #d2d0ce;
+    white-space: nowrap;
+}
+
+/* Ajustes a los botones de tarjetas */
+.btn-excel {
+    cursor: pointer;
+    border: none;
+    font-family: inherit;
+    font-size: inherit;
+}
+
+.enlace-imagen {
+    cursor: pointer;
+}
+
+/* Responsividad para móviles */
+@media (max-width: 768px) {
+    .visor-excel-dialog {
+        width: 100vw;
+        height: 100vh;
+        border-radius: 0;
+    }
+
+    .visor-excel-cabecera {
+        padding: 10px 14px;
+    }
+
+    .visor-titulo-libro {
+        font-size: 1rem;
+    }
+
+    .visor-subtitulo-libro {
+        display: none;
+    }
+
+    .visor-btn-descargar {
+        padding: 5px 10px;
+        font-size: 0.75rem;
+    }
+
+    .visor-foto-marco {
+        height: 180px;
+    }
+
+    .visor-tabla-excel-wrapper {
+        min-width: 700px;
+    }
+}
+
+/* Notificación flotante al abrir Excel */
+.toast-excel-notificacion {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: linear-gradient(135deg, #107c41, #0b5a2e);
+    color: #ffffff;
+    padding: 14px 22px;
+    border-radius: 12px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.28);
+    z-index: 999999;
+    transform: translateY(120px);
+    opacity: 0;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+    pointer-events: none;
+    font-family: inherit;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.toast-excel-notificacion.visible {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.toast-contenido {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.toast-icono {
+    font-size: 2rem;
+    line-height: 1;
+}
+
+.toast-contenido strong {
+    font-size: 0.98rem;
+    display: block;
+}
+
+.toast-contenido p {
+    margin: 3px 0 0;
+    font-size: 0.84rem;
+    color: #e5f6ed;
+}
+
+.toast-tip {
+    display: block;
+    font-size: 0.76rem;
+    margin-top: 6px;
+    color: #fef08a;
+    background: rgba(0, 0, 0, 0.25);
+    padding: 3px 8px;
+    border-radius: 4px;
+}
+
